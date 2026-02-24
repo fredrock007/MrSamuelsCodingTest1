@@ -1,4 +1,4 @@
-<!doctype html>
+ <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -237,90 +237,130 @@ const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
    ========================= */
 function buildQuestions(){
   const Q = [
-   /* =========================
-SECTION A – CODE PREDICTION (1–15)
+  /* =========================
+SECTION A – ERGONOMICS (1–20)
 ========================= */
 
-{ text:"Set score to 10. Repeat 5 times: change score by -2. What is the final score?", choices:["0","5","2","-10"], correct:0 },
-{ text:"Repeat 6 times: Move 30 steps and Turn 60 degrees. What shape is drawn?", choices:["Triangle","Square","Hexagon","Circle"], correct:2 },
-{ text:"Set lives to 3. Change lives by 4. Change lives by -2. Final value?", choices:["5","3","1","7"], correct:0 },
-{ text:"Repeat 4 times: Move 20 steps, Turn 90 degrees. What happens?", choices:["Draws a square","Draws triangle","Moves in line","Nothing"], correct:0 },
-{ text:"Set x to 0. Repeat 3 times: change x by 5. Final value?", choices:["10","15","5","0"], correct:1 },
-{ text:"Repeat 3 times: Say 'Hello' for 1 second. How many times does Hello appear?", choices:["1","2","3","Forever"], correct:2 },
-{ text:"If score starts at 2 and doubles 3 times, what is the final score?", choices:["8","12","16","6"], correct:2 },
-{ text:"Move 50 steps. Turn 180 degrees. Move 50 steps. Where does the sprite end?", choices:["Same starting point","Far away","Upwards","Downwards"], correct:0 },
-{ text:"Set timer to 5. Repeat 2 times: change timer by 3. Final value?", choices:["8","11","6","5"], correct:1 },
-{ text:"Repeat 8 times: Turn 45 degrees. How many degrees turned total?", choices:["180","360","720","90"], correct:1 },
-{ text:"Set score to 0. Repeat 4 times: change score by 1. Final score?", choices:["2","3","4","5"], correct:2 },
-{ text:"Repeat 5 times: move 10 steps. Total distance moved?", choices:["10","20","40","50"], correct:3 },
-{ text:"Turn 90 degrees 4 times. What happens?", choices:["Faces same direction","Faces opposite direction","Spins forever","Error"], correct:0 },
-{ text:"If a sprite moves 10 steps and repeats 10 times, total steps moved?", choices:["10","20","100","90"], correct:2 },
-{ text:"Set health to 20. Change health by -5 three times. Final value?", choices:["5","10","15","0"], correct:0 },
+{ text:"When typing, your back should be:", choices:["Bent forward","Straight and supported","Twisted","Leaning back heavily"], correct:1 },
+{ text:"Your feet while sitting should be:", choices:["Flat on the floor","Hanging","On the desk","Crossed tightly"], correct:0 },
+{ text:"The top of your screen should be:", choices:["Above eye level","At or slightly below eye level","Behind you","On the floor"], correct:1 },
+{ text:"Wrists while typing should be:", choices:["Bent upwards","Flat and relaxed","Bent downwards","Pressed hard"], correct:1 },
+{ text:"Taking short breaks helps to:", choices:["Improve focus","Waste time","Slow typing","Lower marks"], correct:0 },
+{ text:"The keyboard should be:", choices:["Too far","Comfortably close","On your lap","On the monitor"], correct:1 },
+{ text:"Good posture prevents:", choices:["Pain and injury","Better Wi-Fi","Slow typing","Screen glare"], correct:0 },
+{ text:"Your elbows should form about:", choices:["30°","90°","180°","45°"], correct:1 },
+{ text:"Looking down too much may cause:", choices:["Back pain","Neck strain","Better focus","Faster typing"], correct:1 },
+{ text:"Shoulders while typing should be:", choices:["Raised","Relaxed","Tight","Forward"], correct:1 },
+{ text:"Lighting should:", choices:["Cause glare","Be too dark","Be bright but comfortable","Shine into eyes"], correct:2 },
+{ text:"Chair height should allow:", choices:["Feet flat","Feet dangling","Knees higher than head","Back bent"], correct:0 },
+{ text:"Mouse should be used with:", choices:["Bent wrist","Relaxed arm","Tense shoulder","Stretched fingers"], correct:1 },
+{ text:"Screen distance should be about:", choices:["10cm","Arm’s length","1m","Very close"], correct:1 },
+{ text:"Slouching may cause:", choices:["Better marks","Back pain","Faster typing","Nothing"], correct:1 },
+{ text:"Monitor glare can be reduced by:", choices:["Facing window","Adjusting position","Closing eyes","Lowering chair"], correct:1 },
+{ text:"Typing for long without breaks can cause:", choices:["Focus","Fatigue","Better speed","Energy boost"], correct:1 },
+{ text:"Posture affects:", choices:["Health and concentration","Wi-Fi","Marks automatically","Keyboard colour"], correct:0 },
+{ text:"Keyboard height should allow:", choices:["Elbows at 90°","Arms raised","Wrists bent","Leaning forward"], correct:0 },
+{ text:"Correct ergonomics improves:", choices:["Typing speed only","Health and productivity","Screen brightness","Battery life"], correct:1 },
 
 /* =========================
-SECTION B – DEBUGGING (16–30)
+SECTION B – TYPING (21–35)
 ========================= */
 
-{ text:"A repeat block has no blocks inside it. What happens?", choices:["Nothing repeats","It crashes","It runs forever","Moves once"], correct:0 },
-{ text:"Code is outside the 'When green flag clicked' block. What happens?", choices:["Does not start","Runs twice","Speeds up","Deletes variable"], correct:0 },
-{ text:"A variable is used before being set. What may happen?", choices:["Error or wrong value","Nothing","Moves faster","Stops Wi-Fi"], correct:0 },
-{ text:"Sprite does not move because move block is missing. What is needed?", choices:["Add move block","Add sound","Delete sprite","Change colour"], correct:0 },
-{ text:"Forever block without stop condition can cause:", choices:["Infinite loop","One-time action","Error message","Sound issue"], correct:0 },
-{ text:"If touching edge but no action is inside IF block, what happens?", choices:["Nothing","Moves","Deletes","Turns red"], correct:0 },
-{ text:"Repeat 0 times. What happens?", choices:["Nothing runs","Runs once","Runs forever","Crashes"], correct:0 },
-{ text:"Missing closing bracket in IF block causes:", choices:["Code structure error","Faster movement","More loops","Sound issue"], correct:0 },
-{ text:"Sprite not visible because hide block used. Fix?", choices:["Use show block","Add repeat","Delete sprite","Turn 90"], correct:0 },
-{ text:"Wrong variable name used. What happens?", choices:["Does not update correctly","Moves faster","Deletes project","Changes colour"], correct:0 },
-{ text:"No event block in script. What happens?", choices:["Script never starts","Runs automatically","Deletes code","Repeats twice"], correct:0 },
-{ text:"Code inside IF never runs because condition is false. Why?", choices:["Condition not met","Battery low","Wrong colour","Wi-Fi off"], correct:0 },
-{ text:"Sprite moves too fast. What should you add?", choices:["Wait block","Delete block","Turn block","Variable"], correct:0 },
-{ text:"Two forever loops stacked incorrectly. What may happen?", choices:["Unexpected behaviour","Nothing","Stops working","Deletes sprite"], correct:0 },
-{ text:"Using change score by -100 accidentally causes:", choices:["Large decrease","Increase","Error","Sound change"], correct:0 },
+{ text:"Home row left hand:", choices:["ASDF","QWER","ZXCV","JKL;"], correct:0 },
+{ text:"Home row right hand:", choices:["ASDF","UIOP","JKL;","GHJK"], correct:2 },
+{ text:"Touch typing means:", choices:["Looking at keyboard","Typing without looking","Typing slowly","Using one finger"], correct:1 },
+{ text:"Shift key is used for:", choices:["Capital letters","Delete","New line","Tab"], correct:0 },
+{ text:"Backspace key:", choices:["Deletes previous letter","Adds space","Moves cursor down","Closes program"], correct:0 },
+{ text:"Enter key:", choices:["Deletes","New line","Caps","Refresh"], correct:1 },
+{ text:"Typing accuracy means:", choices:["Fast only","Correct letters","Loud typing","Random typing"], correct:1 },
+{ text:"Caps Lock:", choices:["Numbers","Delete","All capitals","Cursor move"], correct:2 },
+{ text:"Practising typing improves:", choices:["Speed and accuracy","Wi-Fi","Battery","Mouse use"], correct:0 },
+{ text:"Proper finger placement improves:", choices:["Errors","Speed","Confusion","Slowness"], correct:1 },
+{ text:"Eyes while typing should focus on:", choices:["Keyboard","Screen","Desk","Ceiling"], correct:1 },
+{ text:"Spacebar is pressed with:", choices:["Thumb","Index finger","Little finger","Palm"], correct:0 },
+{ text:"Typing without looking improves:", choices:["Guessing","Muscle memory","Posture only","Mouse control"], correct:1 },
+{ text:"Accuracy is more important than:", choices:["Speed","Posture","Screen","Chair"], correct:0 },
+{ text:"Typing posture affects:", choices:["Nothing","Comfort and performance","Keyboard colour","Sound"], correct:1 },
 
 /* =========================
-SECTION C – IF / ELSE (31–45)
+SECTION C – DRAWING & GRAPHICS (36–60)
 ========================= */
 
-{ text:"If score > 10 say 'Win'. Else say 'Try again'. If score = 10?", choices:["Win","Try again","Nothing","Error"], correct:1 },
-{ text:"If touching red then stop. Not touching red means?", choices:["Continue moving","Delete","Error","Freeze forever"], correct:0 },
-{ text:"If lives = 0 then game over. If lives = 1?", choices:["Game over","Continue","Reset","Delete"], correct:1 },
-{ text:"If key space pressed, jump. If not pressed?", choices:["Stay still","Jump","Crash","Delete"], correct:0 },
-{ text:"If score >= 5 then unlock. Score = 5?", choices:["Unlock","Lock","Nothing","Error"], correct:0 },
-{ text:"If touching edge then bounce. What happens at edge?", choices:["Bounce","Stop","Delete","Freeze"], correct:0 },
-{ text:"If timer < 0 then stop. Timer = 1?", choices:["Continue","Stop","Reset","Crash"], correct:0 },
-{ text:"If score = 3 then say 'Correct'. Score = 2?", choices:["Nothing","Correct","Error","Delete"], correct:0 },
-{ text:"If not touching blue then move. Touching blue?", choices:["Does not move","Moves","Deletes","Turns red"], correct:0 },
-{ text:"If answer correct then add 1. Else subtract 1. Wrong answer?", choices:["Subtract 1","Add 1","No change","Reset"], correct:0 },
-{ text:"If level > 3 then speed up. Level 4?", choices:["Speed up","Slow down","Nothing","Delete"], correct:0 },
-{ text:"If score < 0 then reset to 0. Score -1?", choices:["Resets to 0","Stays -1","Deletes","Error"], correct:0 },
-{ text:"If touching mouse pointer then say 'Hi'. Not touching?", choices:["Silent","Says Hi","Error","Moves"], correct:0 },
-{ text:"If health <= 0 then game over. Health 0?", choices:["Game over","Continue","Reset","Nothing"], correct:0 },
-{ text:"If touching obstacle then stop. Not touching obstacle?", choices:["Continue moving","Stop","Delete","Freeze"], correct:0 },
+{ text:"Construction lines are drawn:", choices:["Dark","Light and thin","Thick","Coloured"], correct:1 },
+{ text:"Outlines are drawn:", choices:["Thin","Dashed","Dark and clear","Broken"], correct:2 },
+{ text:"Dimension lines show:", choices:["Colour","Measurements","Texture","Material"], correct:1 },
+{ text:"Dimension lines have:", choices:["Dots","Arrows at both ends","No ends","Circles"], correct:1 },
+{ text:"Hidden detail lines are:", choices:["Solid","Dashed","Thick","Coloured"], correct:1 },
+{ text:"Freehand drawing means:", choices:["Without ruler","With ruler","With compass","With printer"], correct:0 },
+{ text:"2D drawing shows:", choices:["Depth","Length and height","3D view","Volume"], correct:1 },
+{ text:"Oblique drawing shows:", choices:["Flat shape","3D with depth","Side only","Top only"], correct:1 },
+{ text:"In oblique drawing, depth lines are at:", choices:["45°","90°","10°","180°"], correct:0 },
+{ text:"Front view shows:", choices:["Back","Main face","Bottom","Inside"], correct:1 },
+{ text:"Isometric drawing shows:", choices:["One face","Two faces","Three faces","None"], correct:2 },
+{ text:"Construction lines should be:", choices:["Erased lightly","Darkened","Coloured","Left thick"], correct:0 },
+{ text:"Ruler is used for:", choices:["Curves","Straight lines","Colouring","Hidden lines"], correct:1 },
+{ text:"Dimension numbers are written:", choices:["Above line","Below page","Random","Inside object"], correct:0 },
+{ text:"Centre lines are usually:", choices:["Solid","Dashed","Thick","Coloured"], correct:1 },
+{ text:"Orthographic drawing shows:", choices:["3D","Different views","Depth only","Colour only"], correct:1 },
+{ text:"Top view shows:", choices:["Above","Side","Back","Inside"], correct:0 },
+{ text:"Side view shows:", choices:["Front","Top","Side","Inside"], correct:2 },
+{ text:"Scale drawing means:", choices:["Real size","Smaller/larger proportion","Random size","Coloured"], correct:1 },
+{ text:"Accurate drawing requires:", choices:["Guessing","Measuring","Colouring","Decorating"], correct:1 },
+{ text:"Thickness of outline should be:", choices:["Very thin","Clear and bold","Invisible","Broken"], correct:1 },
+{ text:"Dimension lines should not:", choices:["Touch object","Have arrows","Show numbers","Be straight"], correct:0 },
+{ text:"Title block contains:", choices:["Drawing info","Colour","Picture only","Nothing"], correct:0 },
+{ text:"Neatness in drawing shows:", choices:["Carelessness","Professional work","Mistakes","Speed"], correct:1 },
+{ text:"Sketching is usually done:", choices:["First stage","Final stage only","Never","With marker"], correct:0 },
 
 /* =========================
-SECTION D – ALGORITHM THINKING (46–55)
+SECTION D – DESIGN PROCESS (61–80)
 ========================= */
 
-{ text:"First step when solving coding problem?", choices:["Plan","Test","Delete","Run randomly"], correct:0 },
-{ text:"Correct order: Plan, Build, Test, Improve. What comes after Test?", choices:["Improve","Delete","Restart","Finish"], correct:0 },
-{ text:"An algorithm must be:", choices:["Clear and ordered","Random","Very long","Confusing"], correct:0 },
-{ text:"Flowchart helps to:", choices:["Visualise steps","Increase battery","Print faster","Speed Wi-Fi"], correct:0 },
-{ text:"Breaking a big problem into smaller parts is called:", choices:["Decomposition","Deletion","Encryption","Looping"], correct:0 },
-{ text:"Repeating a process is called:", choices:["Iteration","Deletion","Encryption","Restart"], correct:0 },
-{ text:"Making decisions in code is called:", choices:["Selection","Battery change","Deletion","Sound"], correct:0 },
-{ text:"Correct step after debugging?", choices:["Test again","Delete project","Ignore","Share password"], correct:0 },
-{ text:"Efficient code usually means:", choices:["Uses fewer steps","Longer code","More loops always","More errors"], correct:0 },
-{ text:"An example of input in robotics is:", choices:["Sensor reading","Motor spinning","LED light","Speaker sound"], correct:0 },
+{ text:"First step is:", choices:["Design","Make","Evaluate","Communicate"], correct:0 },
+{ text:"Design stage involves:", choices:["Sketching ideas","Building","Testing","Selling"], correct:0 },
+{ text:"Make stage involves:", choices:["Planning","Building","Deleting","Talking"], correct:1 },
+{ text:"Evaluate stage involves:", choices:["Testing","Colouring","Drawing","Printing"], correct:0 },
+{ text:"Communicate stage involves:", choices:["Explaining design","Hiding design","Deleting","Ignoring"], correct:0 },
+{ text:"Design brief explains:", choices:["Problem to solve","Colour","Material only","Budget only"], correct:0 },
+{ text:"Specifications describe:", choices:["Requirements","Random ideas","Mistakes","Decorations"], correct:0 },
+{ text:"Constraints are:", choices:["Limits","Colours","Tools","Shapes"], correct:0 },
+{ text:"Prototype is:", choices:["First model","Final product","Decoration","Sketch only"], correct:0 },
+{ text:"Improving design is part of:", choices:["Evaluate","Delete","Ignore","Stop"], correct:0 },
+{ text:"Testing checks if design:", choices:["Works","Is colourful","Is expensive","Is long"], correct:0 },
+{ text:"Feedback helps to:", choices:["Improve design","Delete design","Ignore work","Slow process"], correct:0 },
+{ text:"Good design solves:", choices:["Problems","Nothing","Only colour","Typing issues"], correct:0 },
+{ text:"Brainstorming is used to:", choices:["Generate ideas","Delete ideas","Test","Evaluate only"], correct:0 },
+{ text:"Planning helps to:", choices:["Avoid mistakes","Waste time","Confuse","Slow work"], correct:0 },
+{ text:"Evaluation asks:", choices:["What worked?","What colour?","What shape?","Who typed?"], correct:0 },
+{ text:"Communicating design can be done by:", choices:["Drawing","Hiding","Deleting","Ignoring"], correct:0 },
+{ text:"Final product comes after:", choices:["Make stage","Design stage","Delete stage","Colour stage"], correct:0 },
+{ text:"Research helps to:", choices:["Understand problem","Delete ideas","Ignore task","Guess"], correct:0 },
+{ text:"Design cycle is:", choices:["Ongoing process","One step","Random","Optional"], correct:0 },
 
 /* =========================
-SECTION E – DIGITAL CITIZENSHIP (56–60)
+SECTION E – SYSTEMS & MECHANICAL (81–100)
 ========================= */
 
-{ text:"Someone online asks for your password to 'fix your account'. What should you do?", choices:["Give it","Ignore and tell teacher","Post publicly","Send later"], correct:1 },
-{ text:"You see hurtful comments about a classmate online. Best action?", choices:["Join in","Report and inform adult","Ignore always","Share more"], correct:1 },
-{ text:"Strong password example?", choices:["123456","Password","BlueLion!78","abcdef"], correct:2 },
-{ text:"Before posting a photo of someone, you should:", choices:["Ask permission","Post quickly","Tag strangers","Add password"], correct:0 },
-{ text:"Best practice on shared iPads?", choices:["Log out after use","Stay logged in","Share password","Change settings randomly"], correct:0 }
+{ text:"A lever is a:", choices:["Mechanical system","Electrical system","Software","Sensor"], correct:0 },
+{ text:"Pulley helps to:", choices:["Reduce effort","Increase effort","Stop movement","Delete force"], correct:0 },
+{ text:"Gear system changes:", choices:["Speed or force","Colour","Sound","Light"], correct:0 },
+{ text:"Input means:", choices:["Information in","Output only","Energy only","Problem"], correct:0 },
+{ text:"Output means:", choices:["Result produced","Input only","Error","Battery"], correct:0 },
+{ text:"System has:", choices:["Input, process, output","Input only","Output only","Nothing"], correct:0 },
+{ text:"Cam changes:", choices:["Rotational motion","Colour","Sound","Light"], correct:0 },
+{ text:"Beam is strongest when:", choices:["Deep","Thin","Flat","Broken"], correct:0 },
+{ text:"Truss bridge uses:", choices:["Triangles","Squares","Circles","Lines"], correct:0 },
+{ text:"Hydraulics use:", choices:["Liquid pressure","Air","Electricity","Sound"], correct:0 },
+{ text:"Pneumatics use:", choices:["Air pressure","Water","Oil","Steam"], correct:0 },
+{ text:"Structure must:", choices:["Support load","Look nice only","Be colourful","Be heavy"], correct:0 },
+{ text:"Battery provides:", choices:["Energy","Colour","Speed","Shape"], correct:0 },
+{ text:"Switch controls:", choices:["Flow of electricity","Colour","Sound","Size"], correct:0 },
+{ text:"Series circuit has:", choices:["One path","Many paths","No path","Random path"], correct:0 },
+{ text:"Parallel circuit has:", choices:["More than one path","One path","No path","Broken path"], correct:0 },
+{ text:"Force is:", choices:["Push or pull","Colour","Light","Sound"], correct:0 },
+{ text:"Load is:", choices:["Weight supported","Colour","Battery","Shape"], correct:0 },
+{ text:"Frame structure is made of:", choices:["Connected members","Solid block","Liquid","Air"], correct:0 },
+{ text:"Technology solves:", choices:["Problems","Nothing","Typing only","Games only"], correct:0 }
 
 ];
   // ensure exactly 100 questions
